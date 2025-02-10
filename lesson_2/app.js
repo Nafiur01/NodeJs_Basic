@@ -5,20 +5,20 @@ const app = express();
 // listen for requests
 app.listen(3000);
 
+// register view engine
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-  res.sendFile("./view/index.html", { root: __dirname });
+  const blogs = [];
+  res.render("index", { title: "Homepage", blogs: blogs });
 });
 
 app.get("/about", (req, res) => {
-  res.sendFile("./view/about.html", { root: __dirname });
+  res.render("about", { title: "About" });
 });
 
-app.get("/", (req, res) => {
-  res.send("<p>Home page</p>");
-});
-
-app.get("/about-us", (req, res) => {
-  res.redirect("/about");
+app.get("/blogs/create", (req, res) => {
+  res.render("create", { title: "Create Blog" });
 });
 
 app.use((req, res) => {
