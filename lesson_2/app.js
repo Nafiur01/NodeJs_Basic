@@ -8,7 +8,7 @@ const app = express();
 
 // database connection
 const dbURL =
-  "mongodb+srv://nafiur01:crack123@nodetutorial.js6fv.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=NodeTutorial";
+  "mongodb+srv://<username>:<pass>@nodetutorial.js6fv.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=NodeTutorial";
 mongoose
   .connect(dbURL)
   .then((result) => app.listen(3000))
